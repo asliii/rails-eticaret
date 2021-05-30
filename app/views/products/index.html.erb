@@ -10,6 +10,7 @@
         <th scope="col">Title</th>
         <th scope="col">Brand</th>
         <th scope="col">Type</th>
+        <th scope="col">Created At</th>
         <th scope="col">Operations</th>
       </tr>
     </thead>
@@ -20,6 +21,7 @@
         <td> <%= link_to product.title, product %></td>
         <td> <%= product.brand %></td>
         <td> <%= product.type %></td>
+        <td> <%= product.created_at %></td>
         <td scope="col">
           <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_product_path(product), {:class=>'btn btn-warning'} %>
           <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_path(product),
