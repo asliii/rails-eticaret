@@ -18,8 +18,8 @@
       <tr>
         <th scope="row"><%= product.id %></th>
         <td> <%= link_to product.title, product %></td>
-        <td> <%= product.brand %></td>
-        <td> <%= product.type %></td>
+        <td><span class="badge bg-secondary"> <%= product.brand.title %></span></td>
+        <td><span class="badge bg-dark"> <%= product.type.name %></span></td>
         <td> <%= product.created_at %></td>
         <td scope="col">
           <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_product_path(product), {:class=>'btn btn-warning'} %>
