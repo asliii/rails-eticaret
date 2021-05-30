@@ -1,9 +1,32 @@
-<h1>Products</h1>
+<h1 class="text-center">Products <i class="fa fa-times"></i></h1>
 
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      <%= product.title %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+<a href="products/new" class="btn btn-primary">New Product</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Type</th>
+        <th scope="col">Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <th scope="row"><%= product.id %></th>
+        <td> <%= link_to product.title, product %></td>
+        <td> <%= product.brand.try(:title) %></td>
+        <td> <%= product.type.try(:name) %></td>
+        <td scope="col">
+          <%= link_to "Edit", edit_product_path(product), {:class=>'btn btn-warning'} %>
+          <%= link_to "Destroy", product_path(product),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" }, class:'btn btn-danger' %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+

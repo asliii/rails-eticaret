@@ -1,0 +1,38 @@
+
+<div class="container" style="display: flex; justify-content: center">
+  <div class="card">
+    <div class="card-body">
+    <%= form_with model: @product do |form| %>
+      <div class="col-md-12">
+        <%= form.label :type %><br>
+        <%= collection_select(:product, :type_id, Type.all, :id, :name, {prompt: true}, {:class=>'form-select'} ) %>
+        <% @product.errors.full_messages_for(:type).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+    <div class="col-md-12">
+      <%= form.label :brand %><br>
+      <%= collection_select(:product, :brand_id, Brand.all, :id, :title, {prompt: true}, {:class=>'form-select'} ) %>
+      <% @product.errors.full_messages_for(:brand).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="col-md-12">
+      <%= form.label :title %><br>
+      <%= form.text_field :title, {:class=>'form-control'} %>
+      <% @product.errors.full_messages_for(:title).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+    <br/>
+    <%= form.submit 'Save', :class => 'btn btn-success col-md-12' %>
+    </div>
+    <% end %>
+    </div>
+  </div>
+
+</div>

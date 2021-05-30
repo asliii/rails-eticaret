@@ -1,0 +1,16 @@
+<h1 class="text-center"><%= @brand.title %></h1>
+
+<div class="container" style="display: flex; justify-content: center">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= @brand.title %></h5>
+      <%= link_to "Edit", edit_brand_path(@brand), {:class=>'btn btn-warning'} %>
+      <%= link_to "Destroy", brand_path(@brand),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" }, class:'btn btn-danger' %>
+    </div>
+  </div>
+</div>
+
+<script>
+</script>

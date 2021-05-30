@@ -1,31 +1,3 @@
-<h1>New Product</h1>
+<h1 class="text-center">New Product</h1>
 
-<%= form_with model: @product do |form| %>
-    <div>
-    <%= form.label :brand %><br>
-    <%= collection_select(:type, :type_id, Type.all, :id, :name, prompt: true ) %>
-    <% @product.errors.full_messages_for(:type).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :type %><br>
-    <%= collection_select(:brand, :brand_id, Brand.all, :id, :title, prompt: true ) %>
-    <% @product.errors.full_messages_for(:brand).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% @product.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= render "form", product: @product %>

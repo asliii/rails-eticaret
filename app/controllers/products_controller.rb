@@ -20,8 +20,30 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+
+    redirect_to root_path
+  end
+
   private
-  def article_params
-    params.require(:product).permit(:title, :type, :brand)
+  def product_params
+    params.require(:product).permit(:title, :type_id, :brand_id)
   end
 end
