@@ -20,5 +20,10 @@
 //= require popper
 //= require bootstrap
 
+//= require jquery
+//= require jquery_ujs
+
 import "bootstrap"
+require("@fortawesome/fontawesome-free")
+
 

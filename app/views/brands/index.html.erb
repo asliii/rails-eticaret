@@ -1,12 +1,14 @@
 <h1 class="text-center">Brands</h1>
 
 <div class="container">
-<a href="brands/new" class="btn btn-primary">New Brand</a>
+<a href="brands/new" class="btn btn-success"><i class="fas fa-plus"></i> New Brand</a>
+<a href="/products" class="btn btn-primary"><i class="fas fa-list"></i> Products</a>
   <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Title</th>
+        <th scope="col">Operations</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +16,12 @@
       <tr>
         <th scope="row"><%= brand.id %></th>
         <td> <%= link_to brand.title, brand %></td>
+        <td scope="col">
+          <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_brand_path(brand), {:class=>'btn btn-warning'} %>
+          <%= link_to '<i class="fa fa-trash"></i>'.html_safe, brand_path(brand),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" }, class:'btn btn-danger' %>
+        </td>
       </tr>
       <% end %>
     </tbody>

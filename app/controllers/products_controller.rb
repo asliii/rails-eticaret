@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @brand = @product.brand_id ? Brand.find(@product.brand_id): false
+    @type = @product.type_id ? Type.find(@product.type_id): false
   end
 
   def new

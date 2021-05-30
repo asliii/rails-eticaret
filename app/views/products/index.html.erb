@@ -1,7 +1,8 @@
-<h1 class="text-center">Products <i class="fa fa-times"></i></h1>
+<h1 class="text-center">Products </h1>
 
 <div class="container">
-<a href="products/new" class="btn btn-primary">New Product</a>
+<a href="products/new" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> New Product</a>
+<a href="/brands" class="btn btn-info"><i class="fas fa-list"></i> Brands</a>
   <table class="table">
     <thead>
       <tr>
@@ -9,7 +10,7 @@
         <th scope="col">Title</th>
         <th scope="col">Brand</th>
         <th scope="col">Type</th>
-        <th scope="col">Operation</th>
+        <th scope="col">Operations</th>
       </tr>
     </thead>
     <tbody>
@@ -17,11 +18,11 @@
       <tr>
         <th scope="row"><%= product.id %></th>
         <td> <%= link_to product.title, product %></td>
-        <td> <%= product.brand.try(:title) %></td>
-        <td> <%= product.type.try(:name) %></td>
+        <td> <%= product.brand %></td>
+        <td> <%= product.type %></td>
         <td scope="col">
-          <%= link_to "Edit", edit_product_path(product), {:class=>'btn btn-warning'} %>
-          <%= link_to "Destroy", product_path(product),
+          <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_product_path(product), {:class=>'btn btn-warning'} %>
+          <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_path(product),
                         method: :delete,
                         data: { confirm: "Are you sure?" }, class:'btn btn-danger' %>
         </td>
@@ -29,4 +30,5 @@
       <% end %>
     </tbody>
   </table>
+
 

@@ -4,8 +4,8 @@
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title"><%= @product.title %></h5>
-      <p><%= @product.type_id ? @product.type_id: 'Tip Bulunamadı' %></p>
-      <p><%= @product.brand_id ? @product.brand: 'Marka Bulunamadı' %></p>
+      <p><%= @type ? @type.name : '---' %></p>
+      <p><%= @brand ? @brand.title: '---' %></p>
       <%= link_to "Edit", edit_product_path(@product), {:class=>'btn btn-warning'} %>
       <%= link_to "Destroy", product_path(@product),
                     method: :delete,
